@@ -104,14 +104,26 @@ Es decir que la recompensa de cada estado va a ser igual a la sumatoria de la re
 Paso 1: Definir las variables iniciales. Gamma es el factor de descuento que se usara para todas las recompensas. discounted_rewards es el arreglo que guardara todas las recompensas que han pasado por el algoritmo de descuento. reward_sum es el acumulativo de las recompensas futuras.
 
 Paso 2: Se invierte la lista para empezar desde la ultima recompensa y se hace el proceso de calcular la recompensa con descuento: reward + gamma * reward_sum
-![Deference entre value based y policy based](https://user-images.githubusercontent.com/95035101/202332987-4ba2a27d-d85c-49c5-9226-607673f8cb73.png)
+![ffff](https://user-images.githubusercontent.com/95035101/202336618-a171a7f3-bfd3-4097-868a-0c9cd9ccdc4b.png)
 
 Paso 3: Se vuelve a invertir el arreglo de recompensas para que todas queden en el mismo orden que sus estados.
 
 Paso 4: Se normalizan las recompensas usando la desviacion estandar. Esto se hace para que no haiga saltos muy grandes de recompensa porque podria probocar complicaciones al momento de entrenar la red neuronal
 
 #### train() ####
+Esta funcion se encarga de entrenar la red neuronal con los datos recopilados. Para eso utiliza la funcion tran_on_batch, a la cual se le debe pasar los estados, las acciones y el peso de las mismas. Esto probocara que las acciones con mayor peso tenga mayor prioridad en el proceso de entrnamiento que aquellas que tienen un peso menor.  
+Despues la perdida total y la recompensa total del episodio son guardadas en dos .csv para poder ser mostrados posteriormente en una grafica.  
+Finalmente se usa la funcion 'forget' para vaciar los arreglos para el proximo episodio.
 
 #### run() ####
+Esta funcion empieza realizando una carga de los pesos de la red neuronal si es que existen. Despues entra en un bucle donde elije una accion, la realiza y guarda el estado, accion y recompensa de cada ciclo. En caso de que el agente perdio el episodio, hace el entrenamiento y luego vuelve a realizar el ciclo.
 
+### Resumen ###
+Policy Gradient es un buen metodo para realizar pequeños entornos de prueba que no requieren de metodos muy complejos para ser resuelto. Este metodo brilla por su simplicidad y por ser directo, ya que a diferencia de los metodos value-based, este no requiere una funcion de valor y una politica, si no que solo requiere la politica que se utilizara.
+
+![ffff](https://user-images.githubusercontent.com/95035101/202337408-47143368-a189-4c35-bd9f-61d94202b40d.png)
+
+Uno de los puntos debiles es que puede llegar a tener varianzas muy grandes de un paso a otro, como se puede ver aqui: 
+
+![zxzx](https://user-images.githubusercontent.com/95035101/202337697-7933a987-c265-41a3-a5d4-eadff0e8b2d2.png)
 
