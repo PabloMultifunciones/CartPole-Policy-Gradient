@@ -103,7 +103,12 @@ Es decir que la recompensa de cada estado va a ser igual a la sumatoria de la re
 
 Paso 1: Definir las variables iniciales. Gamma es el factor de descuento que se usara para todas las recompensas. discounted_rewards es el arreglo que guardara todas las recompensas que han pasado por el algoritmo de descuento. reward_sum es el acumulativo de las recompensas futuras.
 
+Paso 2: Se invierte la lista para empezar desde la ultima recompensa y se hace el proceso de calcular la recompensa con descuento: reward + gamma * reward_sum
+![Deference entre value based y policy based](https://user-images.githubusercontent.com/95035101/202332987-4ba2a27d-d85c-49c5-9226-607673f8cb73.png)
 
+Paso 3: Se vuelve a invertir el arreglo de recompensas para que todas queden en el mismo orden que sus estados.
+
+Paso 4: Se normalizan las recompensas usando la desviacion estandar. Esto se hace para que no haiga saltos muy grandes de recompensa porque podria probocar complicaciones al momento de entrenar la red neuronal
 
 #### train() ####
 
