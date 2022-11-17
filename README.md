@@ -121,7 +121,8 @@ Esta funcion empieza realizando una carga de los pesos de la red neuronal si es 
 ### Resumen ###
 Policy Gradient es un buen metodo para realizar pequeños entornos de prueba que no requieren de metodos muy complejos para ser resuelto. Este metodo brilla por su simplicidad y por ser directo, ya que a diferencia de los metodos value-based, este no requiere una funcion de valor y una politica, si no que solo requiere la politica que se utilizara.
 
-![ffff](https://user-images.githubusercontent.com/95035101/202337408-47143368-a189-4c35-bd9f-61d94202b40d.png)
+![Deference entre value based y policy based - copia](https://user-images.githubusercontent.com/95035101/202337828-c0f71862-4434-47be-a56f-e873a88bcccb.png)
+
 
 Uno de los puntos debiles es que puede llegar a tener varianzas muy grandes de un paso a otro, como se puede ver aqui: 
 
